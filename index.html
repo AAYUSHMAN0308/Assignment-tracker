@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <title>Assignment Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="myChart"></canvas>
+<body>
+
+<div class="container">
+  <h1>📚 Assignment Tracker</h1>
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+<div id="progress">Progress: 0%</div>
+  <div class="form">
+    <input type="text" id="title" placeholder="Assignment Title">
+    <input type="date" id="date">
+    <button onclick="addTask()">Add</button>
+  </div>
+<input type="text" id="search" placeholder="Search assignment..." onkeyup="searchTask()">
+<input type="text" id="search" placeholder="🔍 Search..." onkeyup="searchTask()">
+<div id="progress">Progress: 0%</div>
+  <ul id="taskList"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
