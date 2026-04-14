@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Tracker</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Title -->
+  <h1>📚 Assignment Tracker</h1>
+
+  <!-- Greeting -->
+  <p id="greeting"></p>
+
+  <!-- Dark Mode -->
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+
+  <!-- Progress -->
+  <div id="progress">Progress: 0%</div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar">
+    <div id="progress-fill"></div>
+  </div>
+
+  <!-- Form -->
+  <div class="form">
+    <input type="text" id="title" placeholder="Assignment Title">
+    <input type="date" id="date">
+    <button onclick="addTask()">Add</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button onclick="filterTasks('all')">All</button>
+    <button onclick="filterTasks('completed')">Completed</button>
+    <button onclick="filterTasks('pending')">Pending</button>
+  </div>
+
+  <!-- Search -->
+  <input type="text" id="search" placeholder="🔍 Search assignments..." onkeyup="searchTask()">
+
+  <!-- Task List -->
+  <ul id="taskList"></ul>
+
+  <!-- Clear All -->
+  <button onclick="clearAll()">🗑 Clear All</button>
+
+  <!-- Graph -->
+  <canvas id="myChart"></canvas>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<!-- Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
